@@ -1,0 +1,88 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA GALERÍA DE FOTOS (galeria.css)
+   ========================================================================== */
+
+.galeria-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.galeria-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Rejilla de imágenes adaptable */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Contenedor individual de cada foto */
+.galeria-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto de texto oscuro que aparece al pasar el cursor (Hover overlay) */
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+}
+
+.galeria-overlay h3 {
+    color: #d4af37; /* Dorado */
+    font-size: 20px;
+    margin-bottom: 5px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.galeria-overlay p {
+    font-size: 14px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s; /* Pequeño retraso para estilo */
+}
+
+/* --- ACCIONES HOVER (AL PASAR EL RATÓN) --- */
+
+/* 1. Zoom en la foto */
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+/* 2. Mostrar el fondo oscuro */
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+/* 3. Desplazar el texto hacia arriba de forma fluida */
+.galeria-item:hover .galeria-overlay h3,
+.galeria-item:hover .galeria-overlay p {
+    transform: translateY(0);
+}

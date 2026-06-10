@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/galeria.css">
 </head>
 <body>
 
@@ -16,7 +17,15 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html">Nosotros</a></li>
-                <li><a href="menu.html">Menú</a></li>
+                <li>
+                    <a href="menu.html">Menú</a>
+                    <ul class="submenu">
+                        <li><a href="menu.html#entradas">Entradas</a></li>
+                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
+                        <li><a href="menu.html#postres">Postres</a></li>
+                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
+                    </ul>
+                </li>
                 <li><a href="galeria.html" class="active">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
                 <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
@@ -24,20 +33,68 @@
         </nav>
     </header>
 
-    <section>
+    <section class="galeria-section">
         <h2>Nuestra Galería Visual</h2>
-        <p style="margin-bottom: 30px;">Un vistazo a nuestras instalaciones y platillos de autor.</p>
+        <p style="color: #666;">Un recorrido fotográfico por nuestros mejores platillos, rincones y momentos.</p>
         
-        <div class="menu-container">
-            <div class="menu-item" style="height: 200px; display:flex; align-items:center; justify-content:center; background:#ddd;">[Foto del Salón Principal]</div>
-            <div class="menu-item" style="height: 200px; display:flex; align-items:center; justify-content:center; background:#ddd;">[Foto de la Terraza]</div>
-            <div class="menu-item" style="height: 200px; display:flex; align-items:center; justify-content:center; background:#ddd;">[Foto de la Cocina]</div>
+        <div class="galeria-grid">
+            
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500" alt="Detalle Lomo Saltado">
+                <div class="galeria-overlay">
+                    <h3>Fuego en el Wok</h3>
+                    <p>La magia detrás de nuestros platos fuertes salteados al instante.</p>
+                </div>
+            </div>
+
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=500" alt="Salón Principal">
+                <div class="galeria-overlay">
+                    <h3>Nuestro Salón</h3>
+                    <p>Ambiente cálido, sofisticado e ideal para tus mejores veladas.</p>
+                </div>
+            </div>
+
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1572656631137-7935297eff55?q=80&w=500" alt="Bruschetta primer plano">
+                <div class="galeria-overlay">
+                    <h3>Ingredientes Frescos</h3>
+                    <p>Tomates madurados al sol y albahaca orgánica en cada entrada.</p>
+                </div>
+            </div>
+
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=500" alt="Volcán de chocolate emplatado">
+                <div class="galeria-overlay">
+                    <h3>Dulce Final</h3>
+                    <p>Repostería artesanal fina para cerrar con broche de oro.</p>
+                </div>
+            </div>
+
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=500" alt="Copas de vino y servicio">
+                <div class="galeria-overlay">
+                    <h3>Cava Seleccionada</h3>
+                    <p>Los mejores maridajes de origen nacional e internacional.</p>
+                </div>
+            </div>
+
+            <div class="galeria-item revelar">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=500" alt="Chef decorando">
+                <div class="galeria-overlay">
+                    <h3>Pasión Culinaria</h3>
+                    <p>Emplatados con precisión artística y cuidado absoluto.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
