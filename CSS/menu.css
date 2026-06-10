@@ -1,64 +1,141 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA CARTA / MENÚ (menu.css)
+   ========================================================================== */
+
+/* --- TÍTULOS DE CATEGORÍAS (Entradas, Fondos, etc.) --- */
 .categoria-titulo {
-    color: #d4af37; 
+    color: #d4af37; /* Dorado Premium */
     border-bottom: 2px solid #d4af37; 
     padding-bottom: 5px;
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: left;
     font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Contenedor vertical de platos */
 .menu-lista {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
-/* Tarjeta estructurada con Flexbox */
+/* --- TARJETA DE PLATO (ESTRUCTURA FLEXBOX) --- */
 .plato-card {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     overflow: hidden;
     text-align: left;
     align-items: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .plato-card:hover {
     transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Imagen del plato */
 .plato-img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+.plato-card:hover .plato-img {
+    transform: scale(1.04);
+}
+
+/* Bloque de texto e información */
 .plato-info {
     padding: 20px;
     flex: 1;
 }
 
 .plato-info h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
+    font-size: 19px;
+    margin-bottom: 6px;
     color: #1a1a1a;
 }
 
 .plato-info p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: #666;
+    margin-bottom: 10px;
 }
 
-/* Vista responsive para Smartphones */
-@media (max-width: 600px) {
+/* --- FORMULARIO DE PEDIDOS DIRECTOS A LA MESA --- */
+.form-pedido {
+    margin-top: 15px; 
+    display: flex; 
+    gap: 12px; 
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px dashed #eee;
+    padding-top: 12px;
+}
+
+.form-pedido label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Inputs de Número de Mesa y Cantidad */
+.form-pedido input {
+    width: 55px; 
+    padding: 6px; 
+    border-radius: 4px; 
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.form-pedido input:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+/* Botón "Pedir" */
+.form-pedido button {
+    background-color: #d4af37; 
+    color: #1a1a1a; 
+    border: none; 
+    padding: 7px 16px; 
+    font-weight: bold; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-pedido button:hover {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* --- DISEÑO RESPONSIVE (MÓVILES) --- */
+@media (max-width: 680px) {
     .plato-card {
         flex-direction: column;
+        align-items: flex-start;
     }
+    
     .plato-img {
         width: 100%;
         height: 200px;
+    }
+    
+    .form-pedido {
+        width: 100%;
+        justify-content: space-between;
     }
 }
