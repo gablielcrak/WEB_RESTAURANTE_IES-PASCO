@@ -1,8 +1,8 @@
-/* ==========================================
-   ESTILOS PRINCIPALES - index.html
-   ========================================== */
+/* ==========================================================================
+   ESTILOS GENERALES DEL SITIO WEB (PÁGINA PRINCIPAL - index.html)
+   ========================================================================== */
 
-/* Estilos Generales */
+/* Reseteo de márgenes y tipografía principal */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,10 @@ body {
     line-height: 1.6;
 }
 
-/* Encabezado y Barra de Navegación */
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN Y ENCABEZADO (CORREGIDO)
+   ========================================================================== */
+
 header {
     background-color: #1a1a1a;
     color: #fff;
@@ -32,30 +35,89 @@ header {
 
 header .logo h1 {
     font-size: 24px;
-    color: #d4af37; /* Tono Dorado */
+    color: #d4af37; /* Color Dorado */
 }
 
-nav ul {
+/* Forzar que el menú principal sea una fila horizontal limpia */
+nav > ul {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
-nav ul li {
+nav > ul > li {
     margin-left: 20px;
+    position: relative; /* Necesario para que el submenú flote respecto a este elemento */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    white-space: nowrap; /* Evita que los textos largos se partan en dos líneas */
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, 
+nav ul li a.active {
     color: #d4af37;
 }
 
-/* Sección Hero (Banner de Bienvenida) */
+/* Botón Destacado de Reservas en la Navegación */
+nav ul li a.btn-nav {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+nav ul li a.btn-nav:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+/* ==========================================================================
+   SUBMENÚ DESPLEGABLE (CORREGIDO VERTICAL Y FLOTANTE)
+   ========================================================================== */
+
+nav ul .submenu {
+    display: none;             /* Oculto por defecto */
+    position: absolute;        /* Flota sobre el contenido sin empujar el diseño */
+    background-color: #1a1a1a;
+    top: 100%;                 /* Aparece exactamente debajo del enlace 'Menú' */
+    left: 0;
+    width: 200px;              /* Ancho fijo para las opciones hijas */
+    flex-direction: column;    /* Ordena los elementos en vertical, hacia abajo */
+    list-style: none;
+    padding: 10px 0;
+    border-top: 2px solid #d4af37;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav ul .submenu li {
+    margin: 0;
+    padding: 8px 20px;
+    text-align: left;
+}
+
+nav ul .submenu li a {
+    font-size: 15px;
+    font-weight: normal;
+    display: block;
+    width: 100%;
+}
+
+/* Muestra el submenú al pasar el cursor sobre la pestaña 'Menú' */
+nav ul li:hover .submenu {
+    display: flex;
+}
+
+/* ==========================================================================
+   SECCIÓN HERO (BANNER DE BIENVENIDA)
+   ========================================================================== */
+
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200') no-repeat center center/cover;
     height: 80vh;
@@ -93,7 +155,10 @@ nav ul li a:hover {
     background-color: #fff;
 }
 
-/* Configuración de Secciones Estándar */
+/* ==========================================================================
+   ESTILOS DE SECCIONES COMUNES
+   ========================================================================== */
+
 section {
     padding: 60px 10%;
     text-align: center;
@@ -114,7 +179,10 @@ section h2::after {
     margin: 10px auto 0;
 }
 
-/* Grid del Menú */
+/* ==========================================================================
+   TARJETAS DEL MENÚ DESTACADO
+   ========================================================================== */
+
 .menu-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -145,7 +213,10 @@ section h2::after {
     font-size: 18px;
 }
 
-/* Formulario de Reservas */
+/* ==========================================================================
+   FORMULARIO DE RESERVAS / CONTACTO
+   ========================================================================== */
+
 .contact-section {
     background-color: #f1f1f1;
 }
@@ -165,7 +236,10 @@ section h2::after {
     font-size: 16px;
 }
 
-/* Pie de Página */
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+
 footer {
     background-color: #111;
     color: #777;

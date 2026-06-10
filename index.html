@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Sabores del Mundo</title>
-    <!-- Conexión con los estilos exclusivos de la página principal -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Encabezado y Navegación -->
     <header>
         <div class="logo">
             <h1>🍳 Sabores del Mundo</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html">Nosotros</a></li>
-                <li><a href="#menu">Menú</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="menu.html">Menú</a>
+                    <ul class="submenu">
+                        <li><a href="menu.html#entradas">Entradas</a></li>
+                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
+                        <li><a href="menu.html#postres">Postres</a></li>
+                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
+                    </ul>
+                </li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sección Hero (Presentación) -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h2>Alta Cocina en tu Mesa</h2>
@@ -33,7 +40,6 @@
         </div>
     </section>
 
-    <!-- Sección del Menú Destacado -->
     <section id="menu" class="menu-section">
         <h2>Nuestro Menú Destacado</h2>
         <div class="menu-container">
@@ -59,7 +65,6 @@
         </div>
     </section>
 
-    <!-- Sección de Contacto y Reservas -->
     <section id="contacto" class="contact-section">
         <h2>Reserva tu Mesa</h2>
         <p>Asegura tu lugar para una velada perfecta.</p>
@@ -71,8 +76,7 @@
             <button type="submit" class="btn">Confirmar Fecha</button>
         </form>
     </section>
-
-    <!-- Pie de Página -->
+    
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
