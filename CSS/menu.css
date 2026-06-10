@@ -1,0 +1,64 @@
+.categoria-titulo {
+    color: #d4af37; 
+    border-bottom: 2px solid #d4af37; 
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 24px;
+}
+
+.menu-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tarjeta estructurada con Flexbox */
+.plato-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    overflow: hidden;
+    text-align: left;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.plato-card:hover {
+    transform: scale(1.01);
+}
+
+.plato-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.plato-info {
+    padding: 20px;
+    flex: 1;
+}
+
+.plato-info h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.plato-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Vista responsive para Smartphones */
+@media (max-width: 600px) {
+    .plato-card {
+        flex-direction: column;
+    }
+    .plato-img {
+        width: 100%;
+        height: 200px;
+    }
+}

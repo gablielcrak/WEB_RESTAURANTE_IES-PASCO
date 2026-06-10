@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <title>Eventos Especiales - Sabores del Mundo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/eventos.css">
 </head>
 <body>
 
@@ -16,7 +17,15 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html">Nosotros</a></li>
-                <li><a href="menu.html">Menú</a></li>
+                <li>
+                    <a href="menu.html">Menú</a>
+                    <ul class="submenu">
+                        <li><a href="menu.html#entradas">Entradas</a></li>
+                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
+                        <li><a href="menu.html#postres">Postres</a></li>
+                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
+                    </ul>
+                </li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html" class="active">Eventos</a></li>
                 <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
@@ -24,23 +33,56 @@
         </nav>
     </header>
 
-    <section style="padding: 60px 10%; text-align: left;">
-        <h2 style="text-align: center; margin-bottom: 40px;">Próximos Eventos</h2>
+    <section style="padding: 60px 10%;">
+        <h2>Celebraciones y Eventos</h2>
+        <p style="color: #666; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">Hacemos de tus fechas importantes momentos gastronómicos inolvidables. Conoce nuestras opciones.</p>
         
-        <div class="menu-item" style="margin-bottom: 20px; text-align: left;">
-            <h3>🎷 Noches de Jazz & Vino</h3>
-            <p>Todos los viernes de 8:00 PM a 11:00 PM. Disfruta de música en vivo mientras degustas nuestra selección especial de maridaje.</p>
-        </div>
+        <div class="eventos-grid">
+            
+            <div class="evento-card revelar">
+                <div class="evento-img-wrapper">
+                    <span class="evento-tag">Parejas</span>
+                    <img class="evento-img" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=500" alt="Cena Romántica">
+                </div>
+                <div class="evento-info">
+                    <h3>Veladas Románticas</h3>
+                    <p>Sorprende a esa persona especial con una mesa decorada, menú de tres tiempos y una botella de vino espumoso de cortesía.</p>
+                    <a href="contacto.html" class="btn-evento">Reservar Experiencia</a>
+                </div>
+            </div>
 
-        <div class="menu-item" style="text-align: left;">
-            <h3>🎂 Celebraciones Privadas</h3>
-            <p>Contamos con salas privadas y catering exclusivo para cumpleaños, reuniones de negocios o aniversarios. Contáctanos para cotizaciones.</p>
+            <div class="evento-card revelar">
+                <div class="evento-img-wrapper">
+                    <span class="evento-tag">Celebración</span>
+                    <img class="evento-img" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=500" alt="Cumpleaños">
+                </div>
+                <div class="evento-info">
+                    <h3>Cumpleaños y Aniversarios</h3>
+                    <p>Celebra la vida con tus amigos. Para grupos mayores a 8 personas, incluimos un postre personalizado gigante de cortesía.</p>
+                    <a href="contacto.html" class="btn-evento">Cotizar Mesa Grupal</a>
+                </div>
+            </div>
+
+            <div class="evento-card revelar">
+                <div class="evento-img-wrapper">
+                    <span class="evento-tag">Corporativo</span>
+                    <img class="evento-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=500" alt="Eventos Corporativos">
+                </div>
+                <div class="evento-info">
+                    <h3>Cenas y Reuniones de Negocios</h3>
+                    <p>Disponemos de un salón privado equipado con proyector y red Wi-Fi de alta velocidad para tus almuerzos ejecutivos.</p>
+                    <a href="contacto.html" class="btn-evento">Solicitar Reserva Corporativa</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
