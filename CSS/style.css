@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ESTILOS GENERALES DEL SITIO WEB (PÁGINA PRINCIPAL - index.html)
+   ESTILOS GENERALES DEL SITIO WEB (PÁGINA PRINCIPAL Y MULTIPÁGINA)
    ========================================================================== */
 
 /* Reseteo de márgenes y tipografía principal */
@@ -18,7 +18,7 @@ body {
 }
 
 /* ==========================================================================
-   BARRA DE NAVEGACIÓN Y ENCABEZADO (CORREGIDO)
+   BARRA DE NAVEGACIÓN Y ENCABEZADO (CORREGIDO HORIZONTAL)
    ========================================================================== */
 
 header {
@@ -35,7 +35,7 @@ header {
 
 header .logo h1 {
     font-size: 24px;
-    color: #d4af37; /* Color Dorado */
+    color: #d4af37; /* Color Dorado Premium */
 }
 
 /* Forzar que el menú principal sea una fila horizontal limpia */
@@ -47,7 +47,7 @@ nav > ul {
 
 nav > ul > li {
     margin-left: 20px;
-    position: relative; /* Necesario para que el submenú flote respecto a este elemento */
+    position: relative; /* Esencial para que el submenú flote debajo */
 }
 
 nav ul li a {
@@ -79,14 +79,14 @@ nav ul li a.btn-nav:hover {
 }
 
 /* ==========================================================================
-   SUBMENÚ DESPLEGABLE (CORREGIDO VERTICAL Y FLOTANTE)
+   SUBMENÚ DESPLEGABLE (VERTICAL Y FLOTANTE)
    ========================================================================== */
 
 nav ul .submenu {
     display: none;             /* Oculto por defecto */
     position: absolute;        /* Flota sobre el contenido sin empujar el diseño */
     background-color: #1a1a1a;
-    top: 100%;                 /* Aparece exactamente debajo del enlace 'Menú' */
+    top: 100%;                 /* Aparece exactamente debajo del enlace principal */
     left: 0;
     width: 200px;              /* Ancho fijo para las opciones hijas */
     flex-direction: column;    /* Ordena los elementos en vertical, hacia abajo */
@@ -109,7 +109,7 @@ nav ul .submenu li a {
     width: 100%;
 }
 
-/* Muestra el submenú al pasar el cursor sobre la pestaña 'Menú' */
+/* Muestra el submenú al pasar el cursor sobre la pestaña madre */
 nav ul li:hover .submenu {
     display: flex;
 }
@@ -131,6 +131,7 @@ nav ul li:hover .submenu {
 .hero-content h2 {
     font-size: 48px;
     margin-bottom: 10px;
+    min-height: 60px; /* Evita saltos de línea bruscos en el efecto máquina de escribir */
 }
 
 .hero-content p {
@@ -148,11 +149,12 @@ nav ul li:hover .submenu {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .btn:hover {
     background-color: #fff;
+    transform: scale(1.03);
 }
 
 /* ==========================================================================
@@ -180,7 +182,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   TARJETAS DEL MENÚ DESTACADO
+   TARJETAS DEL MENÚ DESTACADO Y GRIDS
    ========================================================================== */
 
 .menu-container {
@@ -194,11 +196,12 @@ section h2::after {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .menu-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .menu-item h3 {
@@ -214,7 +217,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   FORMULARIO DE RESERVAS / CONTACTO
+   FORMULARIO DE RESERVAS (CORREGIDO PARA NUEVA ESTRUCTURA)
    ========================================================================== */
 
 .contact-section {
@@ -234,6 +237,13 @@ section h2::after {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    width: 100%;
+}
+
+.contact-form input:focus {
+    border-color: #d4af37;
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
 }
 
 /* ==========================================================================
@@ -246,4 +256,21 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
+}
+
+/* ==========================================================================
+   ESTILOS ADICIONALES PARA ANIMACIONES DE JAVASCRIPT (SCROLL REVEAL)
+   ========================================================================== */
+
+/* Estado inicial: oculto y empujado 40px hacia abajo */
+.revelar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Estado activo: cuando JS detecta que el usuario llegó a la sección */
+.revelar.activo {
+    opacity: 1;
+    transform: translateY(0);
 }
