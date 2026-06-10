@@ -4,7 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Completo - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para la página de menú */
+        .categoria-titulo {
+            color: #d4af37; 
+            border-bottom: 2px solid #d4af37; 
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 24px;
+        }
+        
+        /* Contenedor de platos en formato lista con imágenes */
+        .menu-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Tarjeta de plato individual */
+        .plato-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            overflow: hidden;
+            text-align: left;
+            align-items: center;
+        }
+
+        /* Contenedor de la imagen del plato */
+        .plato-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* Recorta la imagen para que encaje perfecto sin deformarse */
+        }
+
+        /* Bloque de texto del plato */
+        .plato-info {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .plato-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .plato-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Adaptación para celulares (pantallas pequeñas) */
+        @media (max-width: 600px) {
+            .plato-card {
+                flex-direction: column;
+            }
+            .plato-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,7 +81,15 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html">Nosotros</a></li>
-                <li><a href="menu.html" class="active">Menú</a></li>
+                <li>
+                    <a href="menu.html" class="active">Menú</a>
+                    <ul class="submenu">
+                        <li><a href="menu.html#entradas">Entradas</a></li>
+                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
+                        <li><a href="menu.html#postres">Postres</a></li>
+                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
+                    </ul>
+                </li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
                 <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
@@ -24,37 +97,108 @@
         </nav>
     </header>
 
-    <section style="padding: 60px 10%; text-align: left;">
-        <h2 style="text-align: center; margin-bottom: 40px;">Nuestra Carta</h2>
+    <section style="padding: 40px 10%;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Nuestra Carta</h2>
+        <p style="text-align: center; color: #666;">Descubre la selección de delicias culinarias que tenemos para ti.</p>
         
-        <div id="entradas" style="margin-bottom: 40px;">
-            <h3 style="color: #d4af37; border-bottom: 1px solid #ccc; padding-bottom: 5px;">🥗 Entradas</h3>
-            <p><strong>Bruschetta Caprese ($8.50):</strong> Pan artesanal, tomates cherry y mozzarella.</p>
-            <p><strong>Ceviche de la Casa ($12.00):</strong> Pescado fresco marinado en limón norteño con cebolla y camote.</p>
+        <div id="entradas" class="revelar">
+            <h3 class="categoria-titulo">🥗 Entradas</h3>
+            <div class="menu-lista">
+                
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1572656631137-7935297eff55?q=80&w=400" alt="Bruschetta Caprese">
+                    <div class="plato-info">
+                        <h4>Bruschetta Caprese <span style="float: right; color: #d4af37;">$8.50</span></h4>
+                        <p>Pan artesanal tostado con tomates cherry, mozzarella de búfala y pesto de albahaca.</p>
+                    </div>
+                </div>
+
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=400" alt="Ceviche de la Casa">
+                    <div class="plato-info">
+                        <h4>Ceviche de la Casa <span style="float: right; color: #d4af37;">$12.00</span></h4>
+                        <p>Pescado fresco marinado en limón norteño con cebolla morada, ají limo, choclo y camote.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div id="fondos" style="margin-bottom: 40px;">
-            <h3 style="color: #d4af37; border-bottom: 1px solid #ccc; padding-bottom: 5px;">🥩 Platos Fuertes</h3>
-            <p><strong>Salmón al Eneldo ($22.00):</strong> A la plancha con salsa de eneldo y espárragos.</p>
-            <p><strong>Lomo Saltado ($25.00):</strong> Finos cortes de res salteados al wok con cebolla, tomate y papas fritas.</p>
+        <div id="fondos" class="revelar">
+            <h3 class="categoria-titulo">🥩 Platos Fuertes</h3>
+            <div class="menu-lista">
+                
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=400" alt="Salmón al Eneldo">
+                    <div class="plato-info">
+                        <h4>Salmón al Eneldo <span style="float: right; color: #d4af37;">$22.00</span></h4>
+                        <p>Salmón fresco a la plancha bañado en salsa de eneldo, espárragos tiernos y puré rústico.</p>
+                    </div>
+                </div>
+
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="Lomo Saltado">
+                    <div class="plato-info">
+                        <h4>Lomo Saltado <span style="float: right; color: #d4af37;">$25.00</span></h4>
+                        <p>Finos cortes de res salteados al wok con cebolla, tomate, ají amarillo y crujientes papas fritas.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div id="postres" style="margin-bottom: 40px;">
-            <h3 style="color: #d4af37; border-bottom: 1px solid #ccc; padding-bottom: 5px;">🍰 Postres</h3>
-            <p><strong>Volcán de Chocolate ($7.00):</strong> Centro líquido con helado de vainilla.</p>
-            <p><strong>Tiramisú ($8.00):</strong> Receta tradicional italiana con café espresso y mascarpone.</p>
+        <div id="postres" class="revelar">
+            <h3 class="categoria-titulo">🍰 Postres</h3>
+            <div class="menu-lista">
+                
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400" alt="Volcán de Chocolate">
+                    <div class="plato-info">
+                        <h4>Volcán de Chocolate <span style="float: right; color: #d4af37;">$7.00</span></h4>
+                        <p>Bizcocho de chocolate amargo con centro líquido caliente, acompañado de helado artesanal de vainilla.</p>
+                    </div>
+                </div>
+
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400" alt="Tiramisú">
+                    <div class="plato-info">
+                        <h4>Tiramisú <span style="float: right; color: #d4af37;">$8.00</span></h4>
+                        <p>Receta tradicional italiana con bizcochos de soletilla humedecidos en café espresso, licor y crema de mascarpone.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div id="bebidas">
-            <h3 style="color: #d4af37; border-bottom: 1px solid #ccc; padding-bottom: 5px;">🍷 Bebidas y Vinos</h3>
-            <p><strong>Copa de Vino Tinto ($6.50):</strong> Selección de la casa.</p>
-            <p><strong>Limonada Frozen ($4.00):</strong> Refrescante bebida con menta y jengibre.</p>
+        <div id="bebidas" class="revelar">
+            <h3 class="categoria-titulo">🍷 Bebidas y Vinos</h3>
+            <div class="menu-lista">
+                
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=400" alt="Copa de Vino Tinto">
+                    <div class="plato-info">
+                        <h4>Copa de Vino Tinto <span style="float: right; color: #d4af37;">$6.50</span></h4>
+                        <p>Selección especial de cepas de la casa ideal para acompañar tus carnes.</p>
+                    </div>
+                </div>
+
+                <div class="plato-card">
+                    <img class="plato-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400" alt="Limonada Frozen">
+                    <div class="plato-info">
+                        <h4>Limonada Frozen <span style="float: right; color: #d4af37;">$4.00</span></h4>
+                        <p>Refrescante bebida batida con hielo picado, toques de menta fresca y un toque sutil de jengibre.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
