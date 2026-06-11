@@ -1,38 +1,37 @@
 <?php
-// 1. Incluir el archivo de conexión que creamos antes
-include("conexion.php");
+require_once 'conexion.php';
 
-// 2. Verificar que los datos hayan sido enviados a través del método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // 3. Recibir los datos del formulario usando los atributos 'name' del HTML
-    // mysqli_real_escape_string protege tu base de datos de hackeos (Inyección SQL)
-    $nombre = $conexion->real_escape_string($_POST['nombre_completo']);
-    $email  = $conexion->real_escape_string($_POST['email']);
-    $fecha  = $conexion->real_escape_string($_POST['fecha']);
-    $hora   = $conexion->real_escape_string($_POST['hora']);
-    $personas = intval($_POST['num_personas']); // Convertir a número entero por seguridad
+    $nombre   = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
+    $correo   = isset($_POST['correo']) ? trim($_POST['correo']) : '';
+    $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
+    $fecha    = isset($_POST['fecha']) ? $_POST['fecha'] : '';
+    $hora     = isset($_POST['hora']) ? $_POST['hora'] : '';
+    $personas = isset($_POST['personas']) ? intval($_POST['personas']) : 0;
 
-    // 4. Preparar la orden SQL para insertar en la tabla sin comillas invertidas
-    $sql = "INSERT INTO reservas (nombre_completo, email, fecha, hora, num_personas) 
-            VALUES ('$nombre', '$email', '$fecha', '$hora', $personas)";
-
-    // 5. Ejecutar la orden y comprobar si se guardó con éxito
-    if ($conexion->query($sql) === TRUE) {
-        // Alerta de éxito en JavaScript y redirección automática al inicio
-        echo "<script>
-                alert('¡Reserva confirmada con éxito! Te esperamos.');
-                window.location.href = 'index.html';
-              </script>";
-    } else {
-        echo "Error al registrar la reserva: " . $conexion->error;
+    if (empty($nombre) || empty($correo) || empty($fecha) || $personas <= 0) {
+        echo "<script>alert('🚨 Por favor rellenar campos obligatorios.'); window.history.back();</script>";
+        exit;
     }
 
-    // 6. Cerrar la conexión para liberar memoria del servidor
-    $conexion->close();
+    $sql = "INSERT INTO reservas (nombre_cliente, correo, telefono, fecha_reserva, hora_reserva, numero_personas) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param("sssssi", $nombre, $correo, $telefono, $fecha, $hora, $personas);
+        if ($stmt->execute()) {
+            echo "<script>
+                    alert('✅ ¡Mesa reservada con éxito!');
+                    window.location.href = 'index.html';
+                  </script>";
+        } else {
+            echo "❌ Error al reservar: " . $stmt->error;
+        }
+        $stmt->close();
+    }
 } else {
-    // Si alguien intenta entrar a este archivo directamente sin llenar el formulario, lo mandamos al inicio
     header("Location: index.html");
-    exit();
+    exit;
 }
+$conexion->close();
 ?>

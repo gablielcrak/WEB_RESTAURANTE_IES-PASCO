@@ -3,64 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/global.css">
+    <title>Reservar Mesa - Sabores del Mundo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contacto.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <h1>🍳 Sabores del Mundo</h1>
-        </div>
+        <div class="logo"><h1>🍳 Sabores del Mundo</h1></div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html">Nosotros</a></li>
-                <li>
-                    <a href="menu.html">Menú</a>
-                    <ul class="submenu">
-                        <li><a href="menu.html#entradas">Entradas</a></li>
-                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
-                        <li><a href="menu.html#postres">Postres</a></li>
-                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
-                    </ul>
-                </li>
+                <li><a href="menu.html">Menú</a></li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="contacto.html" class="active">Reservas</a></li>
+                <li><a href="consultar_cuenta.html">🔍 Ver Mi Cuenta</a></li>
+                <li><a href="contacto.html" class="active btn-nav">Reservar Mesa</a></li>
             </ul>
         </nav>
     </header>
 
-    <section style="padding: 40px 10%; max-width: 600px; margin: 0 auto;">
-        <h2 style="text-align: center; margin-bottom: 20px;">Reserva tu Mesa</h2>
+    <main class="reserva-container">
+        <h2>Reserva tu Mesa en Línea</h2>
         
-        <form action="procesar_reserva.php" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-            <label>Nombre Completo:
-                <input type="text" name="nombre_completo" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            </label>
-            <label>Correo Electrónico:
-                <input type="email" name="email" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            </label>
-            <div style="display: flex; gap: 10px;">
-                <label style="flex: 1;">Fecha:
-                    <input type="date" name="fecha" required style="width: 100%; padding: 8px; margin-top: 5px;">
-                </label>
-                <label style="flex: 1;">Hora:
-                    <input type="time" name="hora" required style="width: 100%; padding: 8px; margin-top: 5px;">
-                </label>
+        <form action="procesar_reserva.php" method="POST" class="form-reserva">
+            
+            <div class="campo-grupo">
+                <label>Nombre Completo:</label>
+                <input type="text" name="nombre" required placeholder="Ej. Juan Pérez">
             </div>
-            <label>Número de Personas:
-                <input type="number" name="num_personas" min="1" max="15" value="2" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            </label>
-            <button type="submit" style="background: #d4af37; color:#1a1a1a; padding: 12px; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; margin-top: 10px;">Confirmar Reservación</button>
+
+            <div class="fila-doble">
+                <div class="campo-grupo">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" name="correo" required placeholder="juan@correo.com">
+                </div>
+                <div class="campo-grupo">
+                    <label>Teléfono Celular:</label>
+                    <input type="tel" name="telefono" required placeholder="Ej. 987654321">
+                </div>
+            </div>
+
+            <div class="fila-doble">
+                <div class="campo-grupo">
+                    <label>Fecha de la Cita:</label>
+                    <input type="date" name="fecha" required>
+                </div>
+                <div class="campo-grupo">
+                    <label>Hora:</label>
+                    <input type="time" name="hora" required>
+                </div>
+            </div>
+
+            <div class="campo-grupo">
+                <label>Número de Comensales:</label>
+                <select name="personas" required>
+                    <option value="1">1 Persona</option>
+                    <option value="2" selected>2 Personas</option>
+                    <option value="4">4 Personas</option>
+                    <option value="6">6 Personas</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-enviar-reserva">Confirmar Reservación</button>
         </form>
-    </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/script.js"></script>
 </body>
 </html>

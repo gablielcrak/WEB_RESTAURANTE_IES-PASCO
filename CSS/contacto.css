@@ -1,31 +1,11 @@
-form {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eeeeee;
-}
-
-form label {
-    font-weight: 600;
-    font-size: 14px;
-    color: #333333;
-}
-
-form input {
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 15px;
-    transition: border-color 0.3s;
-}
-
-form input:focus {
-    border-color: #d4af37;
-    outline: none;
-}
-
-form button:hover {
-    background-color: #111111 !important;
-    color: #ffffff !important;
-}
+.reserva-container { padding: 50px 10%; max-width: 650px; margin: 0 auto; text-align: center; }
+.reserva-container h2 { font-size: 30px; margin-bottom: 25px; }
+.form-reserva { background: #fbfbfb; border: 1px solid #eee; border-radius: 12px; padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+.campo-grupo { display: flex; flex-direction: column; margin-bottom: 18px; }
+.campo-grupo label { font-size: 13.5px; font-weight: 600; color: #333; margin-bottom: 6px; }
+.campo-grupo input, .campo-grupo select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none; }
+.campo-grupo input:focus, .campo-grupo select:focus { border-color: #d4af37; }
+.fila-doble { display: flex; gap: 20px; }
+.fila-doble .campo-grupo { flex: 1; }
+.btn-enviar-reserva { width: 100%; background-color: #111; color: #fff; border: none; padding: 12px; font-size: 14px; font-weight: bold; text-transform: uppercase; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.btn-enviar-reserva:hover { background-color: #d4af37; color: #111; }

@@ -1,189 +1,22 @@
-/* ==========================================================================
-   ESTILOS DE MAQUETACIÓN DE TARJETAS HORIZONTALES (menu.css)
-   ========================================================================== */
+.menu-container { padding: 40px 8%; }
+.menu-section h3 { font-size: 20px; border-bottom: 2px solid #d4af37; padding-bottom: 8px; margin-bottom: 25px; font-weight: 700; }
+.menu-grid { display: flex; flex-direction: column; gap: 25px; }
+.menu-card { background: #fff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; overflow: hidden; }
+.menu-foto { width: 240px; min-width: 240px; }
+.menu-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.menu-info { flex: 1; padding: 25px 30px; display: flex; flex-direction: column; }
+.menu-info h4 { font-size: 19px; margin-bottom: 6px; font-weight: 700; }
+.ingredientes { font-size: 14px; color: #555; margin-bottom: 8px; }
+.btn-detalles { font-size: 13px; color: #d4af37; text-decoration: none; font-weight: 600; margin-bottom: 20px; display: inline-block; }
+.form-pedido-horizontal { border-top: 1px dashed #e8e8e8; padding-top: 15px; }
+.form-row-inline { display: flex; align-items: center; gap: 20px; }
+.input-inline-group { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+.input-inline-group input { width: 70px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; text-align: center; }
+.btn-pedir-compacto { background-color: #e0e0e0; color: #333; border: 1px solid #ccc; padding: 6px 20px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+.btn-pedir-compacto:hover { background-color: #d4af37; color: #111; border-color: #d4af37; }
 
-.menu-container {
-    padding: 40px 10%;
-}
-
-.categoria-titulo {
-    color: #111111;
-    font-size: 26px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.menu-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-/* Tarjeta contenedora principal (Efecto de la Imagen 2) */
-.plato-card {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    border: 1px solid #eaeaea;
-    display: flex; /* Fuerza la alineación horizontal */
-    overflow: hidden;
-    min-height: 180px;
-}
-
-/* Caja contenedora fija de la foto izquierda */
-.plato-img-container {
-    width: 260px;
-    min-width: 260px;
-    height: auto;
-}
-
-.plato-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla */
-}
-
-/* Panel derecho de textos y acciones */
-.plato-info {
-    padding: 20px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-}
-
-.plato-info h4 {
-    font-size: 20px;
-    color: #111111;
-    margin-bottom: 5px;
-}
-
-.plato-descripcion {
-    font-size: 14.5px;
-    color: #555555;
-    margin-bottom: 10px;
-}
-
-/* Botón Ver Detalles e Ingredientes */
-.btn-detalles {
-    background: none;
-    border: none;
-    color: #d4af37;
-    font-size: 13.5px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: left;
-    padding: 0;
-    margin-bottom: 15px;
-    width: fit-content;
-}
-
-.btn-detalles:hover {
-    text-decoration: underline;
-    color: #111111;
-}
-
-/* Formulario inline en una sola fila compacta */
-.form-pedido {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-top: 1px dashed #e8e8e8;
-    padding-top: 15px;
-    flex-wrap: wrap;
-}
-
-.form-group-inline {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.form-pedido label {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #333333;
-}
-
-.form-pedido input {
-    width: 70px;
-    padding: 6px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.form-pedido input:focus {
-    border-color: #d4af37;
-    outline: none;
-}
-
-/* Botón Pedir rectangular */
-.btn-pedir {
-    background-color: #e2e2e2;
-    border: 1px solid #cccccc;
-    color: #333333;
-    padding: 6px 16px;
-    font-size: 13.5px;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-pedir:hover {
-    background-color: #d4af37;
-    color: #111111;
-    border-color: #d4af37;
-}
-
-/* MODAL STYLES (Ventana de Información) */
-.modal-plato {
-    display: none;
-    position: fixed;
-    z-index: 3000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    align-items: center;
-    justify-content: center;
-}
-.modal-contenido {
-    background: #fff;
-    max-width: 500px;
-    width: 90%;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-}
-.cerrar-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #fff;
-}
-#modal-img { width: 100%; height: 200px; object-fit: cover; }
-.modal-textos { padding: 20px; }
-.modal-footer-info { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-.precio-destacado { color: #d4af37; font-weight: bold; font-size: 18px; }
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .plato-card {
-        flex-direction: column;
-    }
-    .plato-img-container {
-        width: 100%;
-        height: 200px;
-    }
-}
+.modal-oculto { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
+.modal-contenido { background: white; padding: 30px; border-radius: 8px; max-width: 400px; }
+.modal-contenido h4 { font-size: 20px; margin-bottom: 10px; }
+.modal-contenido p { font-size: 14px; color: #555; margin-bottom: 20px; }
+.btn-cerrar { background: #111; color: white; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-weight: bold; }

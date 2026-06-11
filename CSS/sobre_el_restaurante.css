@@ -1,63 +1,7 @@
-/* ==========================================================================
-   ESTILOS PARA LA SECCIÓN DE LA HISTORIA (sobre_el_restaurante.css)
-   ========================================================================== */
-
-.nosotros-section {
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.titulo-historia {
-    font-size: 32px;
-    color: #222222;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-/* Contenedor Flex para alinear lado a lado */
-.nosotros-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    flex-wrap: wrap; /* Se vuelve vertical en celulares */
-}
-
-/* Caja de Texto (Izquierda) */
-.nosotros-texto {
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
-}
-
-.nosotros-texto p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444444;
-    margin-bottom: 20px;
-}
-
-/* Caja de Imagen (Derecha) */
-.nosotros-imagen {
-    flex: 1;
-    min-width: 300px;
-}
-
-.nosotros-imagen img {
-    width: 100%;
-    max-width: 550px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px; /* Bordes redondeados sutiles */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave inferior */
-}
-
-/* Ajuste responsive */
-@media (max-width: 768px) {
-    .nosotros-container {
-        flex-direction: column;
-    }
-    .nosotros-texto {
-        text-align: center;
-    }
-}
+.nosotros-container { padding: 60px 12%; text-align: center; max-width: 1000px; margin: 0 auto; }
+.nosotros-container h2 { font-size: 32px; margin-bottom: 20px; color: #111; }
+.nosotros-container p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 30px; }
+.valores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+.valor-card { background: #f9f9f9; padding: 25px; border-radius: 8px; border: 1px solid #eee; }
+.valor-card h4 { color: #d4af37; font-size: 18px; margin-bottom: 10px; }
+.valor-card p { font-size: 14px; color: #666; margin: 0; }

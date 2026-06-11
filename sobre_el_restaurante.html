@@ -4,54 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/sobre_el_restaurante.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/sobre_el_restaurante.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <h1>🍳 Sabores del Mundo</h1>
-        </div>
+        <div class="logo"><h1>🍳 Sabores del Mundo</h1></div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_el_restaurante.html" class="active">Nosotros</a></li>
-                <li>
-                    <a href="menu.html">Menú</a>
-                    <ul class="submenu">
-                        <li><a href="menu.html#entradas">Entradas</a></li>
-                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
-                        <li><a href="menu.html#postres">Postres</a></li>
-                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
-                    </ul>
-                </li>
+                <li><a href="menu.html">Menú</a></li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="consultar_cuenta.html">🔍 Ver Mi Cuenta</a></li>
                 <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="nosotros-section">
-        <h2 class="titulo-historia">Nuestra Historia</h2>
+    <main class="nosotros-container">
+        <h2>Nuestra Historia</h2>
+        <p>Fundado con la firme convicción de acercar las joyas gastronómicas internacionales a tu mesa, Sabores del Mundo nació como un pequeño rincón culinario y se ha convertido en un referente de sofisticación, calidez y alta cocina.</p>
         
-        <div class="nosotros-container">
-            <div class="nosotros-texto">
-                <p>Fundado con la misión de acercar las joyas culinarias internacionales a tu paladar, <strong>Sabores del Mundo</strong> combina técnicas tradicionales de alta cocina con los ingredientes locales más frescos del mercado.</p>
-                <p>Cada plato es una obra diseñada minuciosamente por nuestro equipo de chefs para transportarte en un viaje de sensaciones incomparables. Ven y forma parte de nuestra mesa.</p>
+        <div class="valores-grid">
+            <div class="valor-card">
+                <h4>Calidad Absoluta</h4>
+                <p>Seleccionamos materias primas frescas e importadas de manera meticulosa.</p>
             </div>
-            
-            <div class="nosotros-imagen">
-                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800" alt="Interior del Restaurante Sabores del Mundo">
+            <div class="valor-card">
+                <h4>Pasión Gourmet</h4>
+                <p>Nuestros chefs diseñan menús de autor que cuentan una historia diferente en cada estación.</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/script.js"></script>
 </body>
 </html>

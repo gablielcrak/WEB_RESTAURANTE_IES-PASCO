@@ -1,36 +1,34 @@
 <?php
-// Incluimos el puente de conexión
-include("conexion.php");
+require_once 'conexion.php';
 
-// Recibimos de forma segura los parámetros desde el formulario
-$numero_mesa = isset($_POST['numero_mesa']) ? $_POST['numero_mesa'] : '';
-$item_pedido = isset($_POST['item_pedido']) ? $_POST['item_pedido'] : '';
-$cantidad    = isset($_POST['cantidad']) ? $_POST['cantidad'] : '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $numero_mesa = isset($_POST['numero_mesa']) ? intval($_POST['numero_mesa']) : 0;
+    $item_pedido = isset($_POST['item_pedido']) ? trim($_POST['item_pedido']) : '';
+    $cantidad    = isset($_POST['cantidad']) ? intval($_POST['cantidad']) : 0;
 
-// Doble validación de consistencia para el puntero de conexión
-if (!isset($conex) && isset($conexion)) {
-    $conex = $conexion;
-}
+    if ($numero_mesa <= 0 || empty($item_pedido) || $cantidad <= 0) {
+        echo "<script>alert('🚨 Datos inválidos.'); window.location.href = 'menu.html';</script>";
+        exit;
+    }
 
-if ($conex) {
-    // Escapamos strings para evitar fallos por comillas o caracteres extraños
-    $numero_mesa = mysqli_real_escape_string($conex, $numero_mesa);
-    $item_pedido = mysqli_real_escape_string($conex, $item_pedido);
-    $cantidad    = mysqli_real_escape_string($conex, $cantidad);
+    $sql = "INSERT INTO pedidos (numero_mesa, item_pedido, cantidad) VALUES (?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
 
-    // Consulta directa de inserción
-    $query = "INSERT INTO pedidos (numero_mesa, item_pedido, cantidad) VALUES ('$numero_mesa', '$item_pedido', '$cantidad')";
-    $resultado = mysqli_query($conex, $query);
-
-    if ($resultado) {
-        echo "<script>
-                alert('¡Pedido enviado con éxito a la cocina para la Mesa $numero_mesa!');
-                window.location.href = 'menu.html';
-              </script>";
-    } else {
-        echo "Error al insertar el registro: " . mysqli_error($conex);
+    if ($stmt) {
+        $stmt->bind_param("isi", $numero_mesa, $item_pedido, $cantidad);
+        if ($stmt->execute()) {
+            echo "<script>
+                    alert('✅ ¡Pedido enviado para la Mesa " . $numero_mesa . "!');
+                    window.location.href = 'menu.html';
+                  </script>";
+        } else {
+            echo "❌ Error: " . $stmt->error;
+        }
+        $stmt->close();
     }
 } else {
-    echo "Error de inicialización: El enlace con la base de datos es nulo. Verifica los parámetros de conexion.php.";
+    header("Location: menu.html");
+    exit;
 }
+$conexion->close();
 ?>
