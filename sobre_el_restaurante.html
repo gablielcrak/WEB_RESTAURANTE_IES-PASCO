@@ -4,21 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/global.css">
-    <style>
-        .nosotros-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            text-align: left;
-            margin-top: 40px;
-        }
-        .nosotros-texto { flex: 1; }
-        .nosotros-img { flex: 1; width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) {
-            .nosotros-container { flex-direction: column; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/sobre_el_restaurante.css">
 </head>
 <body>
 
@@ -46,14 +33,18 @@
         </nav>
     </header>
 
-    <section style="padding: 60px 10%; text-align: center;">
-        <h2>Nuestra Historia</h2>
-        <div class="nosotros-container revelar">
+    <section class="nosotros-section">
+        <h2 class="titulo-historia">Nuestra Historia</h2>
+        
+        <div class="nosotros-container">
             <div class="nosotros-texto">
-                <p style="margin-bottom: 15px; font-size: 17px;">Fundado con la misión de acercar las joyas culinarias internacionales a tu paladar, <strong>Sabores del Mundo</strong> combina técnicas tradicionales de alta cocina con los ingredientes locales más frescos del mercado.</p>
-                <p style="font-size: 17px;">Cada plato es una obra diseñada minuciosamente por nuestro equipo de chefs para transportarte en un viaje de sensaciones incomparables. Ven y forma parte de nuestra mesa.</p>
+                <p>Fundado con la misión de acercar las joyas culinarias internacionales a tu paladar, <strong>Sabores del Mundo</strong> combina técnicas tradicionales de alta cocina con los ingredientes locales más frescos del mercado.</p>
+                <p>Cada plato es una obra diseñada minuciosamente por nuestro equipo de chefs para transportarte en un viaje de sensaciones incomparables. Ven y forma parte de nuestra mesa.</p>
             </div>
-            <img class="nosotros-img" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=500" alt="Cocina del restaurante">
+            
+            <div class="nosotros-imagen">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800" alt="Interior del Restaurante Sabores del Mundo">
+            </div>
         </div>
     </section>
 
@@ -62,6 +53,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>

@@ -1,43 +1,36 @@
 <?php
-// Incluir la conexión existente a la base de datos
+// Incluimos el puente de conexión
 include("conexion.php");
 
-// Verificar que los datos lleguen por el método POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // Limpiar y recibir variables del formulario
-    $numero_mesa = intval($_POST['numero_mesa']);
-    $item_pedido = trim($_POST['item_pedido']);
-    $cantidad    = intval($_POST['cantidad']);
+// Recibimos de forma segura los parámetros desde el formulario
+$numero_mesa = isset($_POST['numero_mesa']) ? $_POST['numero_mesa'] : '';
+$item_pedido = isset($_POST['item_pedido']) ? $_POST['item_pedido'] : '';
+$cantidad    = isset($_POST['cantidad']) ? $_POST['cantidad'] : '';
 
-    // Validar que los campos no estén vacíos o alterados
-    if (!empty($numero_mesa) && !empty($item_pedido) && !empty($cantidad)) {
-        
-        // Usar Sentencias Preparadas para evitar Inyección SQL (Seguridad Premium)
-        $sql = "INSERT INTO pedidos (numero_mesa, item_pedido, cantidad) VALUES (?, ?, ?)";
-        
-        if ($stmt = mysqli_prepare($conex, $sql)) {
-            // Unir los parámetros (i = int, s = string)
-            mysqli_stmt_bind_param($stmt, "isi", $numero_mesa, $item_pedido, $cantidad);
-            
-            // Ejecutar la consulta
-            if (mysqli_stmt_execute($stmt)) {
-                echo "<script>
-                        alert('¡Pedido enviado con éxito! Su comida/bebida está en preparación para la mesa $numero_mesa.');
-                        window.location.href = 'menu.html';
-                      </script>";
-            } else {
-                echo "Error al procesar el pedido en la base de datos.";
-            }
-            
-            // Cerrar la sentencia
-            mysqli_stmt_close($stmt);
-        }
-    } else {
-        echo "Por favor, rellene todos los campos del pedido correctamente.";
-    }
+// Doble validación de consistencia para el puntero de conexión
+if (!isset($conex) && isset($conexion)) {
+    $conex = $conexion;
 }
 
-// Cerrar la conexión
-mysqli_close($conex);
+if ($conex) {
+    // Escapamos strings para evitar fallos por comillas o caracteres extraños
+    $numero_mesa = mysqli_real_escape_string($conex, $numero_mesa);
+    $item_pedido = mysqli_real_escape_string($conex, $item_pedido);
+    $cantidad    = mysqli_real_escape_string($conex, $cantidad);
+
+    // Consulta directa de inserción
+    $query = "INSERT INTO pedidos (numero_mesa, item_pedido, cantidad) VALUES ('$numero_mesa', '$item_pedido', '$cantidad')";
+    $resultado = mysqli_query($conex, $query);
+
+    if ($resultado) {
+        echo "<script>
+                alert('¡Pedido enviado con éxito a la cocina para la Mesa $numero_mesa!');
+                window.location.href = 'menu.html';
+              </script>";
+    } else {
+        echo "Error al insertar el registro: " . mysqli_error($conex);
+    }
+} else {
+    echo "Error de inicialización: El enlace con la base de datos es nulo. Verifica los parámetros de conexion.php.";
+}
 ?>

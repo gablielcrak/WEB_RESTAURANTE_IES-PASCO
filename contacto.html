@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/contacto.css">
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
@@ -28,33 +27,33 @@
                 </li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
+                <li><a href="contacto.html" class="active">Reservas</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="contact-section">
-        <h2>Reserva tu Mesa Especial</h2>
-        <p style="margin-bottom: 30px; color: #666;">Rellena los datos para asegurar tu espacio gastronómico en nuestro salón.</p>
+    <section style="padding: 40px 10%; max-width: 600px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Reserva tu Mesa</h2>
         
-        <form class="contact-form" action="procesar_reserva.php" method="POST">
-            
-            <label style="display:none;" for="nombre">Nombre Completo</label>
-            <input type="text" id="nombre" name="nombre_completo" placeholder="Tu Nombre Completo" required>
-            
-            <label style="display:none;" for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
-            
-            <label style="text-align: left; font-size: 14px; color: #555; margin-bottom: -5px;" for="fecha">Fecha de la reserva:</label>
-            <input type="date" id="fecha" name="fecha" required>
-            
-            <label style="text-align: left; font-size: 14px; color: #555; margin-bottom: -5px;" for="hora">Hora de la reserva:</label>
-            <input type="time" id="hora" name="hora" required>
-            
-            <label style="display:none;" for="personas">Número de Personas</label>
-            <input type="number" id="personas" name="num_personas" placeholder="Número de Personas (Máx. 10)" min="1" max="10" required>
-            
-            <button type="submit" class="btn">Confirmar Mi Reserva</button>
+        <form action="procesar_reserva.php" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <label>Nombre Completo:
+                <input type="text" name="nombre_completo" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </label>
+            <label>Correo Electrónico:
+                <input type="email" name="email" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </label>
+            <div style="display: flex; gap: 10px;">
+                <label style="flex: 1;">Fecha:
+                    <input type="date" name="fecha" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                </label>
+                <label style="flex: 1;">Hora:
+                    <input type="time" name="hora" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                </label>
+            </div>
+            <label>Número de Personas:
+                <input type="number" name="num_personas" min="1" max="15" value="2" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </label>
+            <button type="submit" style="background: #d4af37; color:#1a1a1a; padding: 12px; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; margin-top: 10px;">Confirmar Reservación</button>
         </form>
     </section>
 
@@ -63,6 +62,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>

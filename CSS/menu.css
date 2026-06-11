@@ -1,101 +1,122 @@
 /* ==========================================================================
-   ESTILOS EXCLUSIVOS PARA LA CARTA / MENÚ (menu.css)
+   ESTILOS DE MAQUETACIÓN DE TARJETAS HORIZONTALES (menu.css)
    ========================================================================== */
 
-/* --- TÍTULOS DE CATEGORÍAS (Entradas, Fondos, etc.) --- */
-.categoria-titulo {
-    color: #d4af37; /* Dorado Premium */
-    border-bottom: 2px solid #d4af37; 
-    padding-bottom: 5px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-align: left;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.menu-container {
+    padding: 40px 10%;
 }
 
-/* Contenedor vertical de platos */
+.categoria-titulo {
+    color: #111111;
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .menu-lista {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-/* --- TARJETA DE PLATO (ESTRUCTURA FLEXBOX) --- */
+/* Tarjeta contenedora principal (Efecto de la Imagen 2) */
 .plato-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eaeaea;
+    display: flex; /* Fuerza la alineación horizontal */
     overflow: hidden;
-    text-align: left;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 180px;
 }
 
-.plato-card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+/* Caja contenedora fija de la foto izquierda */
+.plato-img-container {
+    width: 260px;
+    min-width: 260px;
+    height: auto;
 }
 
-/* Imagen del plato */
 .plato-img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla */
 }
 
-.plato-card:hover .plato-img {
-    transform: scale(1.04);
-}
-
-/* Bloque de texto e información */
+/* Panel derecho de textos y acciones */
 .plato-info {
-    padding: 20px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 1;
 }
 
 .plato-info h4 {
-    font-size: 19px;
-    margin-bottom: 6px;
-    color: #1a1a1a;
+    font-size: 20px;
+    color: #111111;
+    margin-bottom: 5px;
 }
 
-.plato-info p {
+.plato-descripcion {
     font-size: 14.5px;
-    color: #666;
+    color: #555555;
     margin-bottom: 10px;
 }
 
-/* --- FORMULARIO DE PEDIDOS DIRECTOS A LA MESA --- */
+/* Botón Ver Detalles e Ingredientes */
+.btn-detalles {
+    background: none;
+    border: none;
+    color: #d4af37;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.btn-detalles:hover {
+    text-decoration: underline;
+    color: #111111;
+}
+
+/* Formulario inline en una sola fila compacta */
 .form-pedido {
-    margin-top: 15px; 
-    display: flex; 
-    gap: 12px; 
+    display: flex;
     align-items: center;
+    gap: 20px;
+    border-top: 1px dashed #e8e8e8;
+    padding-top: 15px;
     flex-wrap: wrap;
-    border-top: 1px dashed #eee;
-    padding-top: 12px;
+}
+
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .form-pedido label {
-    font-size: 13px;
-    color: #555;
+    font-size: 13.5px;
     font-weight: 600;
+    color: #333333;
 }
 
-/* Inputs de Número de Mesa y Cantidad */
 .form-pedido input {
-    width: 55px; 
-    padding: 6px; 
-    border-radius: 4px; 
-    border: 1px solid #ccc;
+    width: 70px;
+    padding: 6px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
     text-align: center;
     font-size: 14px;
-    background-color: #fff;
-    transition: border-color 0.3s;
 }
 
 .form-pedido input:focus {
@@ -103,39 +124,66 @@
     outline: none;
 }
 
-/* Botón "Pedir" */
-.form-pedido button {
-    background-color: #d4af37; 
-    color: #1a1a1a; 
-    border: none; 
-    padding: 7px 16px; 
-    font-weight: bold; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    font-size: 13px;
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
+/* Botón Pedir rectangular */
+.btn-pedir {
+    background-color: #e2e2e2;
+    border: 1px solid #cccccc;
+    color: #333333;
+    padding: 6px 16px;
+    font-size: 13.5px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.form-pedido button:hover {
-    background-color: #1a1a1a;
+.btn-pedir:hover {
+    background-color: #d4af37;
+    color: #111111;
+    border-color: #d4af37;
+}
+
+/* MODAL STYLES (Ventana de Información) */
+.modal-plato {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+}
+.modal-contenido {
+    background: #fff;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
     color: #fff;
 }
+#modal-img { width: 100%; height: 200px; object-fit: cover; }
+.modal-textos { padding: 20px; }
+.modal-footer-info { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+.precio-destacado { color: #d4af37; font-weight: bold; font-size: 18px; }
 
-/* --- DISEÑO RESPONSIVE (MÓVILES) --- */
-@media (max-width: 680px) {
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
     .plato-card {
         flex-direction: column;
-        align-items: flex-start;
     }
-    
-    .plato-img {
+    .plato-img-container {
         width: 100%;
         height: 200px;
-    }
-    
-    .form-pedido {
-        width: 100%;
-        justify-content: space-between;
     }
 }

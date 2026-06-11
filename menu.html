@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Completo - Sabores del Mundo</title>
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/menu.css">
+    <title>Menú - Sabores del Mundo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
 
@@ -20,10 +20,10 @@
                 <li>
                     <a href="menu.html" class="active">Menú</a>
                     <ul class="submenu">
-                        <li><a href="menu.html#entradas">Entradas</a></li>
-                        <li><a href="menu.html#fondos">Platos Fuertes</a></li>
-                        <li><a href="menu.html#postres">Postres</a></li>
-                        <li><a href="menu.html#bebidas">Bebidas y Vinos</a></li>
+                        <li><a href="#entradas">Entradas</a></li>
+                        <li><a href="#fondos">Platos Fuertes</a></li>
+                        <li><a href="#postres">Postres</a></li>
+                        <li><a href="#bebidas">Bebidas y Vinos</a></li>
                     </ul>
                 </li>
                 <li><a href="galeria.html">Galería</a></li>
@@ -33,240 +33,116 @@
         </nav>
     </header>
 
-    <section style="padding: 40px 10%;">
-        <h2 style="text-align: center; margin-bottom: 20px;">Nuestra Carta</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 30px;">Descubre la selección de delicias culinarias y ordena directamente desde tu mesa.</p>
+    <main class="menu-container">
         
-        <div id="entradas" class="revelar">
-            <h3 class="categoria-titulo">🥗 Entradas</h3>
+        <section id="entradas">
+            <h3 class="categoria-titulo">Entradas</h3>
             <div class="menu-lista">
                 
                 <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1572656631137-7935297eff55?q=80&w=400" alt="Bruschetta Caprese">
+                    <div class="plato-img-container">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="Bruschetta Caprese" class="plato-img">
+                    </div>
                     <div class="plato-info">
-                        <h4>Bruschetta Caprese <span style="float: right; color: #d4af37;">$8.50</span></h4>
-                        <p>Pan artesanal tostado con tomates cherry, mozzarella de búfala y pesto de albahaca.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
+                        <h4>Bruschetta Caprese</h4>
+                        <p class="plato-descripcion">Pan artesanal tostado con tomates cherry, mozzarella de búfala y pesto de albahaca.</p>
+                        
+                        <button type="button" class="btn-detalles" 
+                                data-titulo="Bruschetta Caprese" 
+                                data-desc="Nuestra Bruschetta Caprese se elabora con pan de masa madre horneado a la leña, frotado con ajo fresco y aceite de oliva virgen extra. Encima lleva una fina selección de tomates cherry maduros, perlas de mozzarella de búfala auténtica, hojas de albahaca fresca y un pesto artesanal con piñones crujientes."
+                                data-precio="$8.50"
+                                data-img="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600">
+                            📖 Ver Detalles e Ingredientes
+                        </button>
+
+                        <form class="form-pedido" action="procesar_pedido.php" method="POST">
                             <input type="hidden" name="item_pedido" value="Bruschetta Caprese">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=400" alt="Ceviche de la Casa">
-                    <div class="plato-info">
-                        <h4>Ceviche de la Casa <span style="float: right; color: #d4af37;">$12.00</span></h4>
-                        <p>Pescado fresco marinado en limón norteño con cebolla morada, ají limo, choclo y camote.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Ceviche de la Casa">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400" alt="Ensalada Mandarina">
-                    <div class="plato-info">
-                        <h4>Ensalada Premium de Estación <span style="float: right; color: #d4af37;">$10.00</span></h4>
-                        <p>Mix de lechugas finas, gajos de mandarina, queso de cabra, almendras tostadas y vinagreta de miel.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Ensalada Premium de Estación">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=400" alt="Sopa de Tomate Rostizado">
-                    <div class="plato-info">
-                        <h4>Crema de Tomates Rostizados <span style="float: right; color: #d4af37;">$9.00</span></h4>
-                        <p>Sopa cremosa de tomates horneados con un toque de crema agria y crutones perfumados al ajo.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Crema de Tomates Rostizados">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
+                            
+                            <div class="form-group-inline">
+                                <label>Número de Mesa:</label>
+                                <input type="number" name="numero_mesa" required min="1">
+                            </div>
+                            
+                            <div class="form-group-inline">
+                                <label>Cantidad:</label>
+                                <input type="number" name="cantidad" value="1" required min="1">
+                            </div>
+                            
+                            <button type="submit" class="btn-pedir">Pedir</button>
                         </form>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
-        <div id="fondos" class="revelar">
-            <h3 class="categoria-titulo">🥩 Platos Fuertes</h3>
+        <section id="fondos">
+            <h3 class="categoria-titulo">Platos Fuertes</h3>
             <div class="menu-lista">
                 
                 <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=400" alt="Salmón al Eneldo">
+                    <div class="plato-img-container">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=400" alt="Salmón al Eneldo" class="plato-img">
+                    </div>
                     <div class="plato-info">
-                        <h4>Salmón al Eneldo <span style="float: right; color: #d4af37;">$22.00</span></h4>
-                        <p>Salmón fresco a la plancha bañado en salsa de eneldo, espárragos tiernos y puré rústico.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
+                        <h4>Salmón al Eneldo</h4>
+                        <p class="plato-descripcion">Salmón fresco a la plancha bañado en salsa de eneldo, espárragos tiernos y puré rústico.</p>
+                        
+                        <button type="button" class="btn-detalles" 
+                                data-titulo="Salmón al Eneldo" 
+                                data-desc="Un filete selecto de salmón rosado cocinado a la perfección con la piel crujiente. Es bañado en una salsa cremosa y suave de eneldo fresco, reducción de vino blanco y un toque de limón. Se acompaña de espárragos verdes salteados al wok y un puré rústico de papas nativas."
+                                data-precio="$22.00"
+                                data-img="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=600">
+                            📖 Ver Detalles e Ingredientes
+                        </button>
+
+                        <form class="form-pedido" action="procesar_pedido.php" method="POST">
                             <input type="hidden" name="item_pedido" value="Salmón al Eneldo">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="Lomo Saltado">
-                    <div class="plato-info">
-                        <h4>Lomo Saltado <span style="float: right; color: #d4af37;">$25.00</span></h4>
-                        <p>Finos cortes de res salteados al wok con cebolla, tomate, ají amarillo y crujientes papas fritas.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Lomo Saltado">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=400" alt="Fettuccine Alfredo">
-                    <div class="plato-info">
-                        <h4>Fettuccine Alfredo con Pollo <span style="float: right; color: #d4af37;">$18.50</span></h4>
-                        <p>Pasta artesanal larga en una cremosa salsa de queso parmesano y mantequilla, con pechuga a la parrilla.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Fettuccine Alfredo con Pollo">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=400" alt="Costillas BBQ">
-                    <div class="plato-info">
-                        <h4>Costillas de Cerdo BBQ <span style="float: right; color: #d4af37;">$24.00</span></h4>
-                        <p>Costillas tiernas ahumadas lentamente, bañadas en salsa barbacoa artesanal, con papas rústicas.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Costillas de Cerdo BBQ">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
+                            
+                            <div class="form-group-inline">
+                                <label>Número de Mesa:</label>
+                                <input type="number" name="numero_mesa" required min="1">
+                            </div>
+                            
+                            <div class="form-group-inline">
+                                <label>Cantidad:</label>
+                                <input type="number" name="cantidad" value="1" required min="1">
+                            </div>
+                            
+                            <button type="submit" class="btn-pedir">Pedir</button>
                         </form>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
-        <div id="postres" class="revelar">
-            <h3 class="categoria-titulo">🍰 Postres</h3>
-            <div class="menu-lista">
-                
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400" alt="Volcán de Chocolate">
-                    <div class="plato-info">
-                        <h4>Volcán de Chocolate <span style="float: right; color: #d4af37;">$7.00</span></h4>
-                        <p>Bizcocho de chocolate amargo con centro líquido caliente, acompañado de helado artesanal de vainilla.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Volcán de Chocolate">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
+    </main>
+
+    <div id="modal-info-plato" class="modal-plato">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <img id="modal-img" src="" alt="Imagen del Plato Detallada">
+            <div class="modal-textos">
+                <h3 id="modal-titulo">Nombre del Platillo</h3>
+                <p id="modal-descripcion">Descripción extendida de la receta...</p>
+                <div class="modal-footer-info">
+                    <span id="modal-precio" class="precio-destacado">$0.00</span>
+                    <form id="form-pedido-modal" action="procesar_pedido.php" method="POST" style="display: flex; gap: 10px; align-items: center;">
+                        <input type="hidden" id="modal-input-item" name="item_pedido" value="">
+                        <label>Mesa: <input type="number" name="numero_mesa" required min="1" style="width: 50px; padding: 4px; text-align: center;"></label>
+                        <label>Cant: <input type="number" name="cantidad" value="1" required min="1" style="width: 50px; padding: 4px; text-align: center;"></label>
+                        <button type="submit" class="btn-pedir-modal">Confirmar Pedido</button>
+                    </form>
                 </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400" alt="Tiramisu">
-                    <div class="plato-info">
-                        <h4>Tiramisú Tradicional <span style="float: right; color: #d4af37;">$8.00</span></h4>
-                        <p>Bizcochos de soletilla humedecidos en café espresso y licor, capas de suave crema de mascarpone y cacao.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Tiramisú Tradicional">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1508737027454-e6454ef45afd?q=80&w=400" alt="Cheesecake Frutos Rojos">
-                    <div class="plato-info">
-                        <h4>Cheesecake de Frutos Rojos <span style="float: right; color: #d4af37;">$7.50</span></h4>
-                        <p>Tarta cremosa de queso horneada sobre base crujiente de galleta, coronada con mermelada ácida artesanal.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Cheesecake de Frutos Rojos">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
             </div>
         </div>
-
-        <div id="bebidas" class="revelar">
-            <h3 class="categoria-titulo">🍷 Bebidas y Vinos</h3>
-            <div class="menu-lista">
-                
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=400" alt="Copa de Vino Tinto">
-                    <div class="plato-info">
-                        <h4>Copa de Vino Tinto <span style="float: right; color: #d4af37;">$6.50</span></h4>
-                        <p>Selección especial de cepas Cabernet Sauvignon de la casa ideal para acompañar tus carnes.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Copa de Vino Tinto">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400" alt="Limonada Menta">
-                    <div class="plato-info">
-                        <h4>Limonada Frozen con Menta <span style="float: right; color: #d4af37;">$4.50</span></h4>
-                        <p>Bebida granizada ultra refrescante a base de limones maduros, hojas de menta fresca y un toque de jengibre.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Limonada Frozen con Menta">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="plato-card">
-                    <img class="plato-img" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=400" alt="Mojito">
-                    <div class="plato-info">
-                        <h4>Mojito Cubano Tradicional <span style="float: right; color: #d4af37;">$8.00</span></h4>
-                        <p>Cóctel clásico preparado con ron blanco, zumo de lima fresca, azúcar, agua con gas y buena hierbabuena.</p>
-                        <form action="procesar_pedido.php" method="POST" class="form-pedido">
-                            <input type="hidden" name="item_pedido" value="Mojito Cubano Tradicional">
-                            <label>Mesa: <input type="number" name="numero_mesa" min="1" max="20" placeholder="N°" required></label>
-                            <label>Cant: <input type="number" name="cantidad" min="1" max="10" value="1" required></label>
-                            <button type="submit">🛎️ Pedir</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>
