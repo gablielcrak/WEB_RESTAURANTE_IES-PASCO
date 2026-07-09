@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hora      = $_POST['hora'];
     $personas  = intval($_POST['personas']);
 
-    // Insertar la reservación en la base de datos de manera limpia
+    // Insertar la reservación en la base de datos de manera limpia (tabla reservaciones)
     $stmt = $conexion->prepare("INSERT INTO reservaciones (nombre_cliente, correo, telefono, fecha_reserva, hora_reserva, num_personas) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssi", $nombre, $correo, $telefono, $fecha, $hora, $personas);
 

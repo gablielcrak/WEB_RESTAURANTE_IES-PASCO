@@ -3,7 +3,7 @@
 $servidor = "localhost";
 $usuario  = "root";
 $password = "";
-$base_datos = "sabores_del_mundo"; // Asegúrate de que coincida con el nombre de tu BD
+$base_datos = "sabores_del_mundo"; 
 
 // Crear la conexión utilizando la librería MySQLi
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos);

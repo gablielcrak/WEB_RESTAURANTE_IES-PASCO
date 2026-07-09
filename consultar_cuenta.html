@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Mi Cuenta - Sabores del Mundo</title>
+    <title>Consultar Cuenta - Sabores del Mundo</title>
     <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/contacto.css">
-    <style>
-        .caja-consulta-container { padding: 60px 10%; max-width: 500px; margin: 0 auto; text-align: center; }
-        .caja-consulta-container h2 { font-size: 28px; margin-bottom: 10px; color: #d4af37; }
-        .caja-consulta-container p { color: #aaa; font-size: 14px; margin-bottom: 30px; }
-        .input-mesa-grande { padding: 12px; border: 1px solid #333; background-color: #2a2a2a; color: #fff; border-radius: 6px; font-size: 20px; text-align: center; font-weight: bold; width: 100%; outline: none; margin-top: 5px; }
-        .input-mesa-grande:focus { border-color: #d4af37; }
-    </style>
+    <link rel="stylesheet" href="CSS/menu.css"> <!-- Reutilizamos tus estilos limpios de contenedor -->
 </head>
 <body>
 
@@ -31,29 +24,28 @@
         </nav>
     </header>
 
-    <main class="caja-consulta-container">
-        <h2>🧾 Ver Mi Cuenta</h2>
-        <p>Introduce tu número de mesa para revisar el desglose de tus pedidos en tiempo real.</p>
-        
-        <div class="form-reserva">
-            <div class="campo-grupo">
-                <label style="color: #d4af37;">Número de tu Mesa:</label>
-                <input type="number" id="num_mesa_cliente" min="1" placeholder="Ej. 4" required class="input-mesa-grande">
-            </div>
-            <button type="button" onclick="buscarCuentaMesa()" class="btn-enviar-reserva" style="margin-top: 10px;">Visualizar Consumo</button>
-        </div>
-    </main>
+    <div class="main-content">
+        <div class="container">
+            <h2>Ver Mi Cuenta</h2>
+            <p class="subtitle">Introduce tu número de mesa para ver el desglose del consumo actual</p>
+            
+            <!-- Usamos el método GET para enviar la mesa por la URL hacia ver_cuenta.php -->
+            <form action="ver_cuenta.php" method="GET" class="form-comanda">
+                <div class="campo-grupo">
+                    <label for="mesa">Seleccione su Mesa:</label>
+                    <select name="mesa" id="mesa" required class="input-menu-grande">
+                        <option value="" disabled selected>-- Elige tu mesa --</option>
+                        <option value="1">Mesa 1</option>
+                        <option value="2">Mesa 2</option>
+                        <option value="3">Mesa 3</option>
+                        <option value="4">Mesa 4</option>
+                    </select>
+                </div>
 
-    <script>
-        function buscarCuentaMesa() {
-            const mesa = document.getElementById('num_mesa_cliente').value;
-            if(mesa > 0) {
-                window.location.href = 'ver_cuenta.php?mesa=' + mesa;
-            } else {
-                alert('🚨 Por favor, introduce un número de mesa válido.');
-            }
-        }
-    </script>
+                <button type="submit" class="btn-enviar-comanda">🔍 Consultar Estado de Cuenta</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
