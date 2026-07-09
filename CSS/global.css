@@ -1,3 +1,8 @@
+/* ==========================================================================
+   ESTILOS GLOBALES - RESTAURANTE SABORES DEL MUNDO
+   ========================================================================== */
+
+/* REINICIO GENERAL (RESET) */
 * { 
     margin: 0; 
     padding: 0; 
@@ -5,14 +10,17 @@
     font-family: 'Segoe UI', Arial, sans-serif; 
 }
 
+/* CONFIGURACIÓN DEL CUERPO */
 body { 
-    background-color: #121212; 
-    color: #ffffff; 
+    background-color: #121212; /* Fondo oscuro general para el entorno elegante */
+    color: #ffffff; /* Texto general en blanco */
 }
 
-/* ENCABEZADO Y NAVBAR GENERAL */
+/* ==========================================================================
+   ENCABEZADO Y BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
 header { 
-    background-color: #1a1a1a; 
+    background-color: #1a1a1a; /* Fondo oscuro de la barra superior */
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -20,16 +28,18 @@ header {
     position: sticky; 
     top: 0; 
     z-index: 100; 
-    border-bottom: 2px solid #d4af37;
+    border-bottom: 2px solid #d4af37; /* Línea delgada dorada corporativa */
 }
 
+/* Logotipo Principal */
 .logo h1 { 
-    color: #d4af37; 
+    color: #d4af37; /* Título dorado */
     font-size: 22px; 
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
+/* Contenedor de la Lista del Menú */
 nav ul { 
     list-style: none; 
     display: flex; 
@@ -37,33 +47,42 @@ nav ul {
     align-items: center;
 }
 
+/* Enlaces del Menú de Navegación */
 nav ul li a { 
-    color: #ffffff; 
+    color: #ffffff; /* Blanco puro para que NUNCA se oculte en el fondo */
     text-decoration: none; 
     font-size: 14px; 
     font-weight: 600; 
+    display: inline-flex; /* Forza al emoji y al texto a mantenerse en una línea */
+    align-items: center;  /* Centra verticalmente el texto y el ícono */
+    gap: 6px;             /* Añade una separación limpia entre el ícono y el texto */
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li a.active { 
-    color: #d4af37; 
+/* Estado Hover (Pulsado o encima con el Mouse) y Página Activa */
+nav ul li a:hover, 
+nav ul li a.active { 
+    color: #d4af37; /* Cambia a dorado brillante al pasar el cursor */
 }
 
-/* BOTÓN RESEVAR MESA EN EL NAV */
+/* BOTÓN DESTACADO: RESERVAR MESA */
 .btn-nav { 
     background-color: #d4af37; 
-    color: #111111 !important; 
+    color: #111111 !important; /* Texto oscuro para contraste */
     padding: 8px 15px; 
     border-radius: 4px; 
     font-weight: bold !important; 
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-nav:hover {
     background-color: #bfa030;
+    transform: scale(1.03); /* Ligero efecto de agrandado al pasar el mouse */
 }
 
-/* PIE DE PÁGINA */
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER) UNIFORME
+   ========================================================================== */
 footer { 
     background: #1a1a1a; 
     color: #777777; 
@@ -71,5 +90,5 @@ footer {
     padding: 15px; 
     font-size: 13px; 
     margin-top: 40px; 
-    border-top: 1px solid #222;
+    border-top: 1px solid #222222;
 }

@@ -18,19 +18,18 @@
                 <li><a href="menu.html" class="active">Menú</a></li>
                 <li><a href="galeria.html">Galería</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="consultar_cuenta.html">🔍 Ver Mi Cuenta</a></li>
+                <li><a href="consultar_cuenta.html">Ver Mi Cuenta</a></li>
                 <li><a href="contacto.html" class="btn-nav">Reservar Mesa</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content">
+    <div class="main-content">
         <div class="container">
             <h2>Sabores del Mundo</h2>
             <p style="text-align: center; color: #888; font-size: 14px; margin-bottom: 25px;">Sistema Automatizado de Comandas v1.0</p>
             
             <form action="validar_mesa.php" method="POST" class="form-comanda">
-                
                 <div class="campo-grupo">
                     <label for="id_mesa">Seleccione su Mesa:</label>
                     <select name="id_mesa" id="id_mesa" required class="input-menu-grande">
@@ -59,7 +58,7 @@
                 <button type="submit" class="btn-enviar-comanda" style="margin-top: 15px; width: 100%;">Enviar Comanda a Cocina 🚀</button>
             </form>
         </div>
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2026 Restaurante Sabores del Mundo. Todos los derechos reservados.</p>
