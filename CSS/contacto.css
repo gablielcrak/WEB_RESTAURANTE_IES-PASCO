@@ -1,11 +1,74 @@
-.reserva-container { padding: 50px 10%; max-width: 650px; margin: 0 auto; text-align: center; }
-.reserva-container h2 { font-size: 30px; margin-bottom: 25px; }
-.form-reserva { background: #fbfbfb; border: 1px solid #eee; border-radius: 12px; padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
-.campo-grupo { display: flex; flex-direction: column; margin-bottom: 18px; }
-.campo-grupo label { font-size: 13.5px; font-weight: 600; color: #333; margin-bottom: 6px; }
-.campo-grupo input, .campo-grupo select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none; }
-.campo-grupo input:focus, .campo-grupo select:focus { border-color: #d4af37; }
-.fila-doble { display: flex; gap: 20px; }
-.fila-doble .campo-grupo { flex: 1; }
-.btn-enviar-reserva { width: 100%; background-color: #111; color: #fff; border: none; padding: 12px; font-size: 14px; font-weight: bold; text-transform: uppercase; border-radius: 6px; cursor: pointer; transition: 0.3s; }
-.btn-enviar-reserva:hover { background-color: #d4af37; color: #111; }
+.reserva-container, .caja-consulta-container { 
+    padding: 50px 10%; 
+    max-width: 650px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.reserva-container h2, .caja-consulta-container h2 { 
+    font-size: 30px; 
+    margin-bottom: 10px; 
+    color: #d4af37;
+}
+
+.form-reserva { 
+    background: #1e1e1e; 
+    border: 1px solid #333; 
+    border-radius: 12px; 
+    padding: 30px; 
+    text-align: left; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+}
+
+.campo-grupo { 
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 18px; 
+}
+
+.campo-grupo label { 
+    font-size: 13.5px; 
+    font-weight: 600; 
+    color: #d4af37; 
+    margin-bottom: 6px; 
+}
+
+.campo-grupo input, .campo-grupo select { 
+    padding: 10px; 
+    border: 1px solid #333; 
+    border-radius: 6px; 
+    font-size: 14px; 
+    background-color: #2a2a2a;
+    color: #fff;
+    outline: none; 
+}
+
+.campo-grupo input:focus, .campo-grupo select:focus { 
+    border-color: #d4af37; 
+}
+
+.fila-doble { 
+    display: flex; 
+    gap: 20px; 
+}
+
+.fila-doble .campo-grupo { 
+    flex: 1; 
+}
+
+.btn-enviar-reserva { 
+    width: 100%; 
+    background-color: #d4af37; 
+    color: #000000; 
+    border: none; 
+    padding: 12px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.btn-enviar-reserva:hover { 
+    background-color: #bfa030; 
+}

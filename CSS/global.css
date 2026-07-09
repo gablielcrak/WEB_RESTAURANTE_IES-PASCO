@@ -1,9 +1,75 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { background-color: #ffffff; color: #333; }
-header { background-color: #111; display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: sticky; top: 0; z-index: 100; }
-.logo h1 { color: #fff; font-size: 22px; }
-nav ul { list-style: none; display: flex; gap: 25px; }
-nav ul li a { color: #ccc; text-decoration: none; font-size: 14px; font-weight: 600; }
-nav ul li a:hover, nav ul li a.active { color: #d4af37; }
-.btn-nav { background-color: #d4af37; color: #111 !important; padding: 8px 15px; border-radius: 4px; font-weight: bold !important; }
-footer { background: #111; color: #777; text-align: center; padding: 15px; font-size: 13px; margin-top: 40px; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+body { 
+    background-color: #121212; 
+    color: #ffffff; 
+}
+
+/* ENCABEZADO Y NAVBAR GENERAL */
+header { 
+    background-color: #1a1a1a; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 8%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    border-bottom: 2px solid #d4af37;
+}
+
+.logo h1 { 
+    color: #d4af37; 
+    font-size: 22px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 25px; 
+    align-items: center;
+}
+
+nav ul li a { 
+    color: #ffffff; 
+    text-decoration: none; 
+    font-size: 14px; 
+    font-weight: 600; 
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active { 
+    color: #d4af37; 
+}
+
+/* BOTÓN RESEVAR MESA EN EL NAV */
+.btn-nav { 
+    background-color: #d4af37; 
+    color: #111111 !important; 
+    padding: 8px 15px; 
+    border-radius: 4px; 
+    font-weight: bold !important; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-nav:hover {
+    background-color: #bfa030;
+}
+
+/* PIE DE PÁGINA */
+footer { 
+    background: #1a1a1a; 
+    color: #777777; 
+    text-align: center; 
+    padding: 15px; 
+    font-size: 13px; 
+    margin-top: 40px; 
+    border-top: 1px solid #222;
+}

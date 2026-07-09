@@ -1,37 +1,31 @@
 <?php
 require_once 'conexion.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre   = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-    $correo   = isset($_POST['correo']) ? trim($_POST['correo']) : '';
-    $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
-    $fecha    = isset($_POST['fecha']) ? $_POST['fecha'] : '';
-    $hora     = isset($_POST['hora']) ? $_POST['hora'] : '';
-    $personas = isset($_POST['personas']) ? intval($_POST['personas']) : 0;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre    = strip_tags(trim($_POST['nombre']));
+    $correo    = strip_tags(trim($_POST['correo']));
+    $telefono  = strip_tags(trim($_POST['telefono']));
+    $fecha     = $_POST['fecha'];
+    $hora      = $_POST['hora'];
+    $personas  = intval($_POST['personas']);
 
-    if (empty($nombre) || empty($correo) || empty($fecha) || $personas <= 0) {
-        echo "<script>alert('🚨 Por favor rellenar campos obligatorios.'); window.history.back();</script>";
-        exit;
+    // Insertar la reservación en la base de datos de manera limpia
+    $stmt = $conexion->prepare("INSERT INTO reservaciones (nombre_cliente, correo, telefono, fecha_reserva, hora_reserva, num_personas) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $nombre, $correo, $telefono, $fecha, $hora, $personas);
+
+    if ($stmt->execute()) {
+        echo "<script>
+                alert('📅 ¡Reserva Confirmada! Gracias " . $nombre . ", los esperamos con gusto.');
+                window.location.href = 'contacto.html';
+              </script>";
+    } else {
+        echo "<script>
+                alert('🚨 Hubo un error al procesar la reserva. Por favor intente de nuevo.');
+                window.location.href = 'contacto.html';
+              </script>";
     }
 
-    $sql = "INSERT INTO reservas (nombre_cliente, correo, telefono, fecha_reserva, hora_reserva, numero_personas) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conexion->prepare($sql);
-
-    if ($stmt) {
-        $stmt->bind_param("sssssi", $nombre, $correo, $telefono, $fecha, $hora, $personas);
-        if ($stmt->execute()) {
-            echo "<script>
-                    alert('✅ ¡Mesa reservada con éxito!');
-                    window.location.href = 'index.html';
-                  </script>";
-        } else {
-            echo "❌ Error al reservar: " . $stmt->error;
-        }
-        $stmt->close();
-    }
-} else {
-    header("Location: index.html");
-    exit;
+    $stmt->close();
+    $conexion->close();
 }
-$conexion->close();
 ?>

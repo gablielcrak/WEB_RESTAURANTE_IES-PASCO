@@ -1,14 +1,99 @@
-.eventos-section { padding: 40px 8%; text-align: center; }
-.eventos-section h2 { font-size: 30px; margin-bottom: 10px; color: #111; }
-.eventos-desc { color: #666; font-size: 15px; margin-bottom: 35px; }
-.eventos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.evento-card { position: relative; border-radius: 16px; overflow: hidden; height: 380px; box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
-.evento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.evento-card:hover img { transform: scale(1.08); }
-.evento-tag { position: absolute; top: 15px; left: 15px; background: #d4af37; color: #111; font-size: 11px; font-weight: bold; padding: 5px 12px; border-radius: 20px; z-index: 5; }
-.evento-overlay { position: absolute; left: 0; bottom: -100%; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)); display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 30px; transition: bottom 0.45s ease; }
-.evento-card:hover .evento-overlay { bottom: 0; }
-.evento-overlay h4 { color: #d4af37; font-size: 20px; margin-bottom: 10px; }
-.evento-overlay p { font-size: 14px; line-height: 1.5; margin-bottom: 20px; text-align: center; }
-.btn-evento-action { border: 2px solid #d4af37; background: transparent; color: white; padding: 8px 18px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 4px; text-transform: uppercase; transition: 0.2s; }
-.btn-evento-action:hover { background: #d4af37; color: #111; }
+.eventos-section { 
+    padding: 40px 8%; 
+    text-align: center; 
+}
+
+.eventos-section h2 { 
+    font-size: 30px; 
+    margin-bottom: 10px; 
+    color: #d4af37; 
+}
+
+.eventos-desc { 
+    color: #aaaaaa; 
+    font-size: 15px; 
+    margin-bottom: 35px; 
+}
+
+.eventos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+.evento-card { 
+    position: relative; 
+    border-radius: 16px; 
+    overflow: hidden; 
+    height: 380px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4); 
+    border: 1px solid #333;
+}
+
+.evento-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s; 
+}
+
+.evento-card:hover img { 
+    transform: scale(1.08); 
+}
+
+.evento-tag { 
+    position: absolute; 
+    top: 15px; 
+    left: 15px; 
+    background: #d4af37; 
+    color: #111; 
+    font-size: 11px; 
+    font-weight: bold; 
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    z-index: 5; 
+}
+
+.evento-overlay { 
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: center; 
+    color: #fff;
+    padding: 25px;
+    text-align: center;
+}
+
+.evento-overlay h4 {
+    color: #d4af37;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.evento-overlay p {
+    font-size: 13px;
+    color: #cccccc;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.btn-evento-action {
+    background-color: #d4af37;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.btn-evento-action:hover {
+    background-color: #bfa030;
+}

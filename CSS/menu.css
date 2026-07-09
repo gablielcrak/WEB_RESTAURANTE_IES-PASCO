@@ -1,22 +1,70 @@
-.menu-container { padding: 40px 8%; }
-.menu-section h3 { font-size: 20px; border-bottom: 2px solid #d4af37; padding-bottom: 8px; margin-bottom: 25px; font-weight: 700; }
-.menu-grid { display: flex; flex-direction: column; gap: 25px; }
-.menu-card { background: #fff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; overflow: hidden; }
-.menu-foto { width: 240px; min-width: 240px; }
-.menu-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.menu-info { flex: 1; padding: 25px 30px; display: flex; flex-direction: column; }
-.menu-info h4 { font-size: 19px; margin-bottom: 6px; font-weight: 700; }
-.ingredientes { font-size: 14px; color: #555; margin-bottom: 8px; }
-.btn-detalles { font-size: 13px; color: #d4af37; text-decoration: none; font-weight: 600; margin-bottom: 20px; display: inline-block; }
-.form-pedido-horizontal { border-top: 1px dashed #e8e8e8; padding-top: 15px; }
-.form-row-inline { display: flex; align-items: center; gap: 20px; }
-.input-inline-group { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
-.input-inline-group input { width: 70px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; text-align: center; }
-.btn-pedir-compacto { background-color: #e0e0e0; color: #333; border: 1px solid #ccc; padding: 6px 20px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.2s; }
-.btn-pedir-compacto:hover { background-color: #d4af37; color: #111; border-color: #d4af37; }
+.main-content {
+    padding: 40px 20px;
+}
 
-.modal-oculto { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
-.modal-contenido { background: white; padding: 30px; border-radius: 8px; max-width: 400px; }
-.modal-contenido h4 { font-size: 20px; margin-bottom: 10px; }
-.modal-contenido p { font-size: 14px; color: #555; margin-bottom: 20px; }
-.btn-cerrar { background: #111; color: white; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background: #1e1e1e; 
+    padding: 25px; 
+    border-radius: 8px; 
+    border: 1px solid #d4af37; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.container h2 {
+    text-align: center;
+    color: #d4af37;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.form-comanda {
+    margin-top: 20px;
+}
+
+.campo-grupo { 
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 20px; 
+}
+
+.campo-grupo label { 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: #d4af37; 
+    margin-bottom: 8px; 
+}
+
+.input-menu-grande { 
+    padding: 12px; 
+    border: 1px solid #333; 
+    border-radius: 6px; 
+    font-size: 15px; 
+    background-color: #2a2a2a;
+    color: #fff;
+    width: 100%;
+    outline: none; 
+}
+
+.input-menu-grande:focus { 
+    border-color: #d4af37; 
+}
+
+.btn-enviar-comanda { 
+    width: 100%; 
+    background-color: #d4af37; 
+    color: #000000; 
+    border: none; 
+    padding: 14px; 
+    font-size: 16px; 
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-enviar-comanda:hover { 
+    background-color: #bfa030;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
